@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>we are the world</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="./dist/datamaps.world.withoutId.js"></script>
+</head>
+<body>
+<div id="container1" style="position: relative; width: 800px; height: 300px;"></div>
+
+<script>
+    var worldData = {
+        // 'KOR': 'Alaska'
+    };
+
+    var USmap = new Datamap({
+        element: document.getElementById("container1"),
+        scope: 'world', //currently supports 'usa' and 'world', however with custom map data you can specify your own
+        projection: 'equirectangular', //style of projection to be used. try "mercator"
+        height: 520, //if not null, datamaps will grab the height of 'element'
+        fills: {
+            defaultFill: '#EDDC4E'
+        },
+        geographyConfig: {
+            highlightBorderColor: '#bada55',
+            popupTemplate: function (geography, data) {
+                return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+            },
+            highlightBorderWidth: 2
+        }
+    });
+    USmap.labels({'customLabelText': worldData});
+</script>
+</div>
+</body>
+</html>

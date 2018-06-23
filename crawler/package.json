@@ -1,0 +1,17 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio-httpcli": "^0.7.3",
+    "simplecrawler": "^1.1.6",
+    "node-simple-crawler": "^0.1.6",
+    "url-parse": "^1.4.1"
+  }
+}
