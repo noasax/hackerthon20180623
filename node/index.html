@@ -1,0 +1,33 @@
+<html>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
+<div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+<script>
+    //var map = new Datamap({element: document.getElementById('container')});
+</script>  
+<script>
+  $( document ).ready(function() {
+    var data = {};
+    var USmap = new Datamap({
+        element: document.getElementById("container"),
+        scope: 'world', //currently supports 'usa' and 'world', however with custom map data you can specify your own
+        projection: 'equirectangular', //style of projection to be used. try "mercator"
+        height: 520, //if not null, datamaps will grab the height of 'element'
+        fills: {
+            defaultFill: '#EDDC4E'
+        },
+        geographyConfig: {
+            highlightBorderColor: '#bada55',
+            popupTemplate: function (geography, data) {
+                return '<div class="hoverinfo">' + geography.properties.name + '</div>';
+            },
+            highlightBorderWidth: 2
+        }
+    });
+    USmap.labels({'customLabelText': data});
+    $(".labels").find("text").each(function(i, obj){console.log($(obj).text(''))});
+  });
+</script>
+</html>

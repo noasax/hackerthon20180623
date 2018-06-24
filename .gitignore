@@ -1,1 +1,2 @@
-./crawler/node_modules/
+./node/node_modules/
+./node/package-lock.json
